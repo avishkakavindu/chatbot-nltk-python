@@ -1,0 +1,219 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi there",
+        "How are you",
+        "Is anyone there?",
+        "Hey",
+        "Hola",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hello, thanks for asking",
+        "Good to see you again",
+        "Hi there, how can I help?"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Nice chatting to you, bye",
+        "Till next time"
+      ],
+      "responses": [
+        "See you!",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Awesome, thanks",
+        "Thanks for helping me"
+      ],
+      "responses": [
+        "Happy to help!",
+        "Any time!",
+        "My pleasure"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "noanswer",
+      "patterns": [],
+      "responses": [
+        "Sorry, can't understand you",
+        "Please give me more info",
+        "Not sure I understand"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "options",
+      "patterns": [
+        "How you could help me?",
+        "What help you provide?",
+        "How you can be helpful?"
+      ],
+      "responses": [
+        "I can guide you through food ordering, order tracking, table reservation",
+        "I can provide support related to following problems technical query,order related query,tracking related query and booking related queries"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "menu",
+      "patterns": [
+        "I like to order something",
+        "What are your meals?",
+        "What is available to order?",
+        "What are you selling?"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "order",
+      "patterns": [
+        "I like to order the onion soup",
+        "I'd like a cheese pizza please",
+        "I'm going to have the eggs and toast",
+        "I'll take the burger"
+      ]
+    },
+    {
+      "tag": "order_customization",
+      "patterns": [
+        "I want to customize my order",
+        "I like my own meal"
+      ],
+      "response": []
+    },
+    {
+      "tag": "order_tracking",
+      "patterns": [
+        "where is order with id 431B67?",
+        "track order 562B78",
+        "Where is my order with id 561A24?"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "missing_id",
+      "patterns": [
+        "where is the order",
+        "where is my order",
+        "locate the order",
+        "Delivery date of order"
+      ],
+      "responses": [
+        "Please enter with order ID"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "Location",
+      "patterns": [
+        "find order location 32712",
+        "What is the Location of order 23A31?"
+      ],
+      "responses": [
+        "It is in germany",
+        "It is in Berlin",
+        "It has reached china",
+        "It has reached Banglore"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "forgot_password",
+      "patterns": [
+        "I forgot my Login password?",
+        "what to do when someone forgets Login password?",
+        "I forgot my Laptop password",
+        "Forgot Wifi password"
+      ],
+      "responses": [
+        "Please enter your email id ,we will send a link on your email"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "invalid",
+      "patterns": [
+        "Marry me",
+        "I love You",
+        "date me",
+        "chat with me",
+        "I am bored"
+      ],
+      "responses": [
+        "Please ask related query."
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "what is your name?",
+        "what should I call you?",
+        "Who are you?"
+      ],
+      "responses": [
+        "I'm your automated assistant",
+        "Hey!I'm just a bunch of code"
+      ],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "about",
+      "patterns": [
+        "how you doing?",
+        "how are you"
+      ],
+      "responses": [
+        "Thanks For Asking!How can I help you?"
+      ],
+      "context": [
+        ""
+      ]
+    }
+  ]
+}
