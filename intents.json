@@ -103,7 +103,8 @@
         "I'd like a cheese pizza please",
         "I'm going to have the eggs and toast",
         "I'll take the burger"
-      ]
+      ],
+      "responses": []  
     },
     {
       "tag": "order_customization",
@@ -111,7 +112,7 @@
         "I want to customize my order",
         "I like my own meal"
       ],
-      "response": []
+      "responses": []
     },
     {
       "tag": "order_tracking",
