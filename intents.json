@@ -77,7 +77,7 @@
       ],
       "responses": [
         "I can guide you through food ordering, order tracking, table reservation",
-        "I can provide support related to following problems technical query,order related query,tracking related query and booking related queries"
+        "I can provide support related to following problems order related query,tracking related query and booking related queries"
       ],
       "context": [
         ""
@@ -97,6 +97,56 @@
       ]
     },
     {
+      "tag": "breakfast_menu",
+      "patterns": [
+        "What's for breakfast?",
+        "Breakfast",
+        "For morning"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "lunch_menu",
+      "patterns": [
+        "What's for lunch?",
+        "Lunch",
+        "for noon"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "dinner_menu",
+      "patterns": [
+        "What's for dinner?",
+        "Dinner",
+        "For night"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "fast_food_menu",
+      "patterns": [
+        "Fast foods",
+        "Beverages",
+        "Drinks",
+        "Something to eat",
+        "Something light"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
       "tag": "order",
       "patterns": [
         "I like to order the onion soup",
@@ -107,17 +157,65 @@
       "responses": []  
     },
     {
+      "tag": "order_type_take_away",
+      "patterns": [
+        "I like to pickup",
+        "Pickup",
+        "I like to take away",
+        "Takeaway"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
+      "tag": "order_type_deliver",
+      "patterns": [
+        "Please, deliver my order.",
+        "I like delivery",
+        "Deliver it",
+        "Send it to me",
+        "I like to send it"
+      ],
+      "responses": [],
+      "context": [
+        ""
+      ]
+    },
+    {
       "tag": "order_customization",
       "patterns": [
         "I want to customize my order",
         "I like my own meal"
       ],
-      "responses": []
+      "responses": [
+        "Please, provide your order id and message.(please follow the format <ID>-<message>)",
+        "Can you provide your order id? and message?(please follow the format <ID>-<message>)",
+        "What's your order id? and message?(please follow the format <ID>-<message>)"
+      ]
+    },
+    {
+      "tag": "custom_order_detail",
+      "patterns": [
+        "Order id: OID1",
+        "OID1",
+        "OID2",
+        "OID10",
+        "OID001",
+        "OID0003",
+        "OID123",
+        "OID234",
+        "OID23456"
+      ],
+      "responses": [
+
+      ]
     },
     {
       "tag": "order_tracking",
       "patterns": [
-        "where is order with id 431B67?",
+        "where is my order with id 431B67?",
         "track order 562B78",
         "Where is my order with id 561A24?"
       ],
@@ -127,16 +225,13 @@
       ]
     },
     {
-      "tag": "missing_id",
+      "tag": "table_reservation",
       "patterns": [
-        "where is the order",
-        "where is my order",
-        "locate the order",
-        "Delivery date of order"
+        "Can I book a table?",
+        "Reserve a table",
+        "Book table"
       ],
-      "responses": [
-        "Please enter with order ID"
-      ],
+      "responses": [],
       "context": [
         ""
       ]
