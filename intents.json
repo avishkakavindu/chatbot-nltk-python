@@ -3,8 +3,9 @@
     {
       "tag": "greeting",
       "patterns": [
+        "Hi!",
         "Hi there",
-        "How are you",
+        "hi, How are you",
         "Is anyone there?",
         "Hey",
         "Hola",
@@ -25,29 +26,21 @@
       "patterns": [
         "Bye",
         "See you later",
+        "See you",
+        "see ya later",
         "Goodbye",
         "Nice chatting to you, bye",
-        "Till next time"
-      ],
-      "responses": [
-        "See you!",
-        "Have a nice day",
-        "Bye! Come back again soon."
-      ],
-      "context": [
-        ""
-      ]
-    },
-    {
-      "tag": "thanks",
-      "patterns": [
+        "Nice chat!",
+        "Till next time",
         "Thanks",
         "Thank you",
         "That's helpful",
         "Awesome, thanks",
-        "Thanks for helping me"
+        "Thanks for helping me",
+        "Thanks for the help"
       ],
       "responses": [
+        "See you!",
         "Happy to help!",
         "Any time!",
         "My pleasure"
@@ -58,7 +51,12 @@
     },
     {
       "tag": "noanswer",
-      "patterns": [],
+      "patterns": [
+        " ",
+        "",
+        " .",
+        "    "
+      ],
       "responses": [
         "Sorry, can't understand you",
         "Please give me more info",
@@ -73,7 +71,8 @@
       "patterns": [
         "How you could help me?",
         "What help you provide?",
-        "How you can be helpful?"
+        "How you can be helpful?",
+        "What can you do?"
       ],
       "responses": [
         "I can guide you through food ordering, order tracking, table reservation",
@@ -86,7 +85,7 @@
     {
       "tag": "menu",
       "patterns": [
-        "I like to order something",
+        "Menu, please",
         "What are your meals?",
         "What is available to order?",
         "What are you selling?"
@@ -113,7 +112,10 @@
       "patterns": [
         "What's for lunch?",
         "Lunch",
-        "for noon"
+        "for noon",
+        "I like lunch",
+        "I want lunch.",
+        "Like to have lunch"
       ],
       "responses": [],
       "context": [
@@ -135,11 +137,12 @@
     {
       "tag": "fast_food_menu",
       "patterns": [
+        "fastfoods",
         "Fast foods",
         "Beverages",
         "Drinks",
         "Something to eat",
-        "Something light"
+        "Something lite"
       ],
       "responses": [],
       "context": [
@@ -208,9 +211,7 @@
         "OID234",
         "OID23456"
       ],
-      "responses": [
-
-      ]
+      "responses": []
     },
     {
       "tag": "order_tracking",
@@ -237,37 +238,6 @@
       ]
     },
     {
-      "tag": "Location",
-      "patterns": [
-        "find order location 32712",
-        "What is the Location of order 23A31?"
-      ],
-      "responses": [
-        "It is in germany",
-        "It is in Berlin",
-        "It has reached china",
-        "It has reached Banglore"
-      ],
-      "context": [
-        ""
-      ]
-    },
-    {
-      "tag": "forgot_password",
-      "patterns": [
-        "I forgot my Login password?",
-        "what to do when someone forgets Login password?",
-        "I forgot my Laptop password",
-        "Forgot Wifi password"
-      ],
-      "responses": [
-        "Please enter your email id ,we will send a link on your email"
-      ],
-      "context": [
-        ""
-      ]
-    },
-    {
       "tag": "invalid",
       "patterns": [
         "Marry me",
@@ -277,7 +247,8 @@
         "I am bored"
       ],
       "responses": [
-        "Please ask related query."
+        "Please ask related query.",
+        "Sorry, I cannot understand"
       ],
       "context": [
         ""

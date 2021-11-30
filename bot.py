@@ -3,11 +3,12 @@ import numpy as np
 import nltk
 import pickle
 import random
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import WordNetLemmatizer, SnowballStemmer
 import tensorflow as tf
 from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
 from tensorflow.keras.models import load_model
+from matplotlib import pyplot as plt
 
 
 class ChatBot:
@@ -16,6 +17,7 @@ class ChatBot:
     def __init__(self, json_file='intents.json'):
         self.intents = json.loads(open(json_file).read())
         self.lemmatizer = WordNetLemmatizer()
+        self.stemmer = SnowballStemmer(language='english')
         self.all_words = []
         self.classes = []
         self.dataset = []
@@ -31,13 +33,29 @@ class ChatBot:
                 if intent['tag'] not in self.classes:
                     self.classes.append(intent['tag'])
 
-        self.all_words = [self.lemmatizer.lemmatize(word) for word in self.all_words if word not in self.IGNORED_LETTERS]
+        # self.all_words = [self.lemmatizer.lemmatize(word) for word in self.all_words if word not in self.IGNORED_LETTERS]
+        self.all_words = [self.stemmer.stem(word) for word in self.all_words if
+                          word not in self.IGNORED_LETTERS]
         self.all_words = sorted(set(self.all_words))
         self.classes = sorted(set(self.classes))
 
     def create_pkl_files(self):
         pickle.dump(self.all_words, open('all_words.pkl', 'wb'))
         pickle.dump(self.classes, open('classes.pkl', 'wb'))
+
+    def gen_graph(self, hist, title):
+        plt.plot(hist.history['accuracy'])
+        plt.title('model accuracy')
+        plt.ylabel('accuracy')
+        plt.xlabel('epoch')
+        plt.show()
+
+        plt.plot(hist.history['loss'])
+        plt.title('model loss')
+        plt.ylabel('loss')
+        plt.xlabel('epoch')
+        plt.show()
+        plt.show()
 
     def get_train_set(self):
         train_set = []
@@ -67,10 +85,12 @@ class ChatBot:
 
     def create_model(self, input_shape, output_shape):
         model = Sequential()
-        model.add(Dense(128, input_shape=input_shape, activation="relu"))
-        model.add(Dropout(0.5))
+        model.add(Dense(6, input_shape=input_shape, activation="relu"))
+        model.add(BatchNormalization())
+        model.add(Dense(16, input_shape=input_shape, activation="relu"))
+        model.add(BatchNormalization())
         model.add(Dense(64, activation="relu"))
-        model.add(Dropout(0.3))
+        model.add(BatchNormalization())
         model.add(Dense(output_shape, activation="softmax"))
 
         adam = tf.keras.optimizers.Adam(learning_rate=0.01, decay=1e-6)
@@ -97,8 +117,8 @@ class ChatBot:
 
     def clean_up(self, sentence):
         tokenized = nltk.word_tokenize(sentence)
-        lemmatized = [self.lemmatizer.lemmatize(word) for word in tokenized]
-        return lemmatized
+        stem = [self.stemmer.stem(word) for word in tokenized]
+        return stem
 
     def bag_of_words(self, sentence):
         all_words = pickle.load(open('all_words.pkl', 'rb'))
@@ -116,7 +136,8 @@ class ChatBot:
         loaded_model = load_model('model.model')
 
         predictions = loaded_model.predict(np.array([bag]))[0]
-        ERROR_THRESHOLD = 0.5
+        print("Predictions: ", predictions)
+        ERROR_THRESHOLD = 0.25
         results = [[i, r] for i, r in enumerate(predictions) if r > ERROR_THRESHOLD]
 
         classes = pickle.load(open('classes.pkl', 'rb'))
@@ -134,9 +155,10 @@ class ChatBot:
 
 if __name__ == '__main__':
     model = ChatBot()
-    # model.train()
-
-    print(model.get_predictions('hi, goodbye'))
+    model.train()
+    while True:
+        msg = input()
+        print(model.get_predictions(msg))
 
 
 
